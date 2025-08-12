@@ -1,0 +1,31 @@
+[project]
+name = "pifenet-test"
+version = "0.1.0"
+requires-python = ">=3.8.6, <3.8.8"
+description = "PifeNet project, used for object detection using LiDAR"
+readme = "README.md"
+dependencies = [
+	"torch==1.7.1",
+	]
+	
+[build-system]
+requires = ["hatchling>=1.24.2", "scikit-build-core~=0.9.3"]
+build-backend = "hatchling.build"
+
+[tool.scikit-build]
+build.verbose = true
+logging.level = "INFO"
+
+[tool.hatch.build.targets.wheel.hooks.scikit-build]
+experimental = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu110", marker = "sys_platform == 'linux' or sys_platform == 'win32'"  }
+torchvision = { index = "pytorch-cu110", marker = "sys_platform == 'linux' or sys_platform == 'win32'"  }
+torchaudio = { index = "pytorch-cu110", marker = "sys_platform == 'linux' or sys_platform == 'win32'"  }
+
+[[tool.uv.index]]
+name = "pytorch-cu110"
+url = "https://download.pytorch.org/whl/cu110"
+explicit = true
+
