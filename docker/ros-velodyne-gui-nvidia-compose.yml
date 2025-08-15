@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  velodyne_ros:
+    extends:
+      file: ros-velodyne-gui-compose.yml
+      service: velodyne_ros
+    environment:
+     - NVIDIA_VISIBLE_DEVICES=all
+     - NVIDIA_DRIVER_CAPABILITIES=all
+    runtime: nvidia

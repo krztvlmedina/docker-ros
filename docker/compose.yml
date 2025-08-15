@@ -1,15 +1,22 @@
 services:
-  web:
-    # Build the image from the Dockerfile in the current directory
+  pifenet-base:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile.base
+    image: pifenet-base
+    profiles: ["build-only"]
+
+  pifenet:
     build:
       context: ../
       dockerfile: docker/Dockerfile
+    image: pifenet
+    depends_on:
+      - pifenet-base
     volumes:
-      - ../src:/home/uv-example-user/src	
-    # Host the FastAPI application on port 8000
-    ports:
-      - "8000:8000"
-
+      - ../src:/home/uv-example-user/src
+      - ./external:/external
+    command: ["bash"]
     develop:
       # Create a `watch` configuration to update the app
       # https://docs.docker.com/compose/file-watch/#compose-watch-versus-bind-mounts
@@ -26,3 +33,11 @@ services:
         # Rebuild the image if dependencies change by checking uv.lock
         - action: rebuild
           path: ./pyproject.toml
+  velodyne_ros:
+    build:
+      context: ..
+      dockerfile: docker/ros-velodyne.Dockerfile
+    container_name: velodyne_ros
+    network_mode: "host"
+    tty: true
+    

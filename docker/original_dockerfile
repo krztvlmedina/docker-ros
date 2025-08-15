@@ -1,0 +1,122 @@
+# syntax=docker/dockerfile:1.7-labs
+
+# -----------------------------
+# Stage 1: System deps + spconv clone (cached)
+# -----------------------------
+FROM python:3.8-slim-bookworm as code-source
+COPY --from=ghcr.io/astral-sh/uv:0.8.4 /uv /uvx /bin/
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git build-essential cmake
+
+
+# Clone pifenet with persistent cache
+RUN mkdir -p /tmp/pifenet-cache && \
+    echo "pifenet-cache directory ready"
+RUN --mount=type=cache,target=/tmp/pifenet-cache \
+    if [ ! -d /tmp/pifenet-cache/.git ]; then \
+        echo "Cloning pifenet repository..." && \
+        git clone --recursive https://github.com/ldtho/PiFeNet.git /tmp/pifenet-cache; \
+    else \
+        echo "Using cached pifenet repository."; \
+    fi
+
+RUN cp -a /tmp/pifenet-cache /pifenet
+
+
+# Clone spconv with persistent cache
+RUN mkdir -p /tmp/spconv-cache && \
+    echo "spconv-cache directory ready"
+RUN --mount=type=cache,target=/tmp/spconv-cache \
+    if [ ! -d /tmp/spconv-cache/.git ]; then \
+        echo "Cloning spconv repository..." && \
+        git clone --recursive -b v1.2.1 https://github.com/traveller59/spconv.git /tmp/spconv-cache && \
+        cd /tmp/spconv-cache && \
+        git submodule update --recursive; \
+    else \
+        echo "Using cached spconv repository."; \
+    fi
+
+# Copy to /spconv for build stage
+
+RUN cp -a /tmp/spconv-cache /spconv
+RUN set -x && ls -alh
+
+# -----------------------------
+# Stage 2: Build spconv + install Python deps
+# -----------------------------
+FROM continuumio/miniconda3:latest as spconvbuilder
+COPY --from=ghcr.io/astral-sh/uv:0.8.4 /uv /uvx /bin/
+COPY src/conda-environment.yml .
+COPY src/pyproject.toml .
+COPY src/check_torch.py .
+COPY --from=code-source /spconv /spconv
+
+RUN ls -alh
+# RUN conda install -c conda-forge libxml2
+# RUN conda env create -f conda-environment.yml
+    # pytorch=1.7.1 cudatoolkit=11.0.221 cudatoolkit-dev cmake=3.18.2 cuda-nvcc cudnn boost -c pytorch -c conda-forge -c nvidia
+
+RUN apt-get update && apt-get install -y libxml2
+RUN conda create --name pifenet python=3.8.6 pytorch=1.7.1 cudatoolkit=11.0.221 cudatoolkit-dev cmake=3.18.2 cuda-nvcc cudnn boost -c pytorch -c conda-forge -c nvidia
+RUN echo "source activate pifenet" > ~/.bashrc
+# RUN conda activate pifenet
+RUN pip install uv
+RUN uv add addict einops fire jupyterlab jupyter-packaging \
+    tensorboard matplotlib numba numpy open3d addict scikit-image psutil boost \
+    einops scikit-learn fire jupyterlab tensorboardx matplotlib numba numpy open3d \
+    pandas pillow protobuf scipy seaborn tqdm
+RUN conda install yaml libboost -c pytorch -c conda-forge -c nvidia -c numba -c open3d-admin
+RUN pip install opencv-python 
+# Copy your project requirements early for caching
+
+#UP UNTIL HERE IT WORKS FINE, I WANT TO SAVE THIS TO AN IMAGE TO AVOID REINSTALLING CUDA
+WORKDIR /src
+
+# Python version
+# RUN uv python install 3.8.6
+
+RUN touch README.md
+# RUN uv venv
+# Build spconv wheel
+WORKDIR /spconv
+RUN pwd
+# RUN --mount=type=cache,target=/root/.cache/uv \
+#     uv --verbose sync --no-editable --no-install-project
+# RUN --mount=type=cache,target=/root/.cache/uv \
+#     uv run check_torch.py
+# RUN --mount=type=cache,target=/root/.cache/uv \
+#     uv run setup.py bdist_wheel
+RUN ls -alh
+RUN uv run setup.py bdist_wheel
+
+# -----------------------------
+# Stage 3: Final app image
+# -----------------------------
+FROM python:3.8-slim-bookworm
+COPY --from=ghcr.io/astral-sh/uv:0.8.4 /uv /uvx /bin/
+RUN uv python install 3.8.6
+
+WORKDIR /app
+COPY src/pyproject.toml .
+RUN --mount=type=cache,target=/root/.cache/uv uv lock
+
+# Install spconv wheel
+COPY --from=spconvbuilder /spconv/dist/ /dist
+WORKDIR /dist
+RUN --mount=type=cache,target=/root/.cache/uv uv pip install -e .
+
+# Back to app dir for deps
+WORKDIR /app
+RUN --mount=type=cache,target=/root/.cache/uv uv pip install -r pyproject.toml
+
+# Copy source code last to maximize cache
+COPY . .
+RUN --mount=type=cache,target=/root/.cache/uv uv pip install -e .
+
+# Set PYTHONPATH for second.pytorch
+ENV PYTHONPATH="${PYTHONPATH}:/app/second/second"
+
+# Final sync to ensure lock matches
+RUN --mount=type=cache,target=/root/.cache/uv uv sync --locked

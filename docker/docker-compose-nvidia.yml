@@ -1,0 +1,7 @@
+velodyne_ros:
+    extends:
+      file: compose.yml
+      service: velodyne_ros
+    environment:
+     - NVIDIA_VISIBLE_DEVICES=all
+    runtime: nvidia
