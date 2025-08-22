@@ -1,22 +1,28 @@
 services:
-  pifenet-base:
+  pifenetBase:
     build:
       context: ../
-      dockerfile: docker/Dockerfile.base
+      dockerfile: docker/base.pixi.Dockerfile
     image: pifenet-base
     profiles: ["build-only"]
-
   pifenet:
     build:
       context: ../
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/base.pixi.Dockerfile
     image: pifenet
-    depends_on:
-      - pifenet-base
-    volumes:
-      - ../src:/home/uv-example-user/src
-      - ./external:/external
-    command: ["bash"]
+    # depends_on:
+      # - pifenetBase
+      # - ./external:/external
+    # command: ["bash"]
+    command: ["tail", "-f", "/dev/null"]
+    stdin_open: true # docker run -i
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
     develop:
       # Create a `watch` configuration to update the app
       # https://docs.docker.com/compose/file-watch/#compose-watch-versus-bind-mounts
@@ -40,4 +46,3 @@ services:
     container_name: velodyne_ros
     network_mode: "host"
     tty: true
-    

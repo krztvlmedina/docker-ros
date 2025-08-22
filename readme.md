@@ -23,3 +23,18 @@ Se recomienda usar el script `setup.sh` para clonar automáticamente las depende
 # Desde la raíz del proyecto
 chmod +x setup.sh
 ./setup.sh
+```
+
+## DEBUG PERSONAL
+
+NVIDIA RUNTIME en build
+- https://forums.developer.nvidia.com/t/nvidia-docker-runtime-does-not-seem-to-work-with-docker-compose/307879/2
+- https://forums.developer.nvidia.com/t/docker-build-with-nvidia-runtime/272767
+- https://forums.developer.nvidia.com/t/whats-difference-between-gpus-and-runtime-nvidia-for-the-docker-container/283468/4
+- https://developer.nvidia.com/container-runtime
+
+EJECUTAR SVCONV
+
+sudo docker compose --verbose run --rm pifenet
+y después en otra ventana
+sudo docker compose exec -it pifenet bash

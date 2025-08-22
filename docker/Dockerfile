@@ -3,14 +3,16 @@ FROM pifenet-base
 
 # Copy pre-cloned repos
 COPY ../external/spconv /spconv
-
+ENV NVIDIA_VISIBLE_DEVICES: all
+ENV NVIDIA_DRIVER_CAPABILITIES: all
 WORKDIR /spconv
 
 # Ensure correct Python environment is active
-RUN echo "source activate pifenet" > ~/.bashrc
-
+SHELL ["conda", "run", "-n", "pifenet", "/bin/bash", "-c"]
+RUN uv pip list
+RUN conda list
 # Build spconv wheel
-RUN python setup.py bdist_wheel
+# RUN python setup.py bdist_wheel
 
 
 # FROM pifenet-base as builder

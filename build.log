@@ -1,0 +1,644 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 955B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7-labs
+#2 DONE 1.0s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7-labs@sha256:b99fecfe00268a8b556fad7d9c37ee25d716ae08a5d7320e6d51c4dd83246894
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/pifenet-base:latest
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 ...
+
+#7 [1/6] FROM docker.io/library/pifenet-base:latest
+#7 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 151.54MB 1.1s done
+#6 DONE 1.1s
+
+#8 [2/6] COPY ../external/spconv /spconv
+#8 DONE 0.5s
+
+#9 [3/6] WORKDIR /spconv
+#9 DONE 0.1s
+
+#10 [4/6] RUN uv pip list
+#10 1.669 Using Python 3.8.19 environment at: /opt/conda/envs/pifenet
+#10 1.669 
+#10 1.669 Package                   Version
+#10 1.669 ------------------------- --------------
+#10 1.669 addict                    2.4.0
+#10 1.669 anyio                     4.5.0
+#10 1.669 argon2-cffi               23.1.0
+#10 1.669 argon2-cffi-bindings      21.2.0
+#10 1.669 arrow                     1.3.0
+#10 1.669 asttokens                 3.0.0
+#10 1.669 async-lru                 2.0.4
+#10 1.669 attrs                     24.2.0
+#10 1.669 babel                     2.16.0
+#10 1.669 backcall                  0.2.0
+#10 1.669 beautifulsoup4            4.12.3
+#10 1.669 bleach                    6.1.0
+#10 1.669 boltons                   23.0.0
+#10 1.669 brotli                    1.0.9
+#10 1.669 cached-property           1.5.2
+#10 1.669 certifi                   2024.8.30
+#10 1.669 cffi                      1.15.1
+#10 1.669 charset-normalizer        3.3.2
+#10 1.669 comm                      0.2.2
+#10 1.669 conda                     23.3.1
+#10 1.669 conda-package-handling    2.3.0
+#10 1.669 conda-package-streaming   0.10.0
+#10 1.669 cryptography              41.0.7
+#10 1.669 debugpy                   1.8.5
+#10 1.669 decorator                 5.1.1
+#10 1.669 defusedxml                0.7.1
+#10 1.669 entrypoints               0.4
+#10 1.669 exceptiongroup            1.2.2
+#10 1.669 executing                 2.1.0
+#10 1.669 fastjsonschema            2.20.0
+#10 1.669 filelock                  3.16.1
+#10 1.669 fqdn                      1.5.1
+#10 1.669 gmpy2                     2.1.5
+#10 1.669 h11                       0.14.0
+#10 1.669 h2                        4.1.0
+#10 1.669 hpack                     4.0.0
+#10 1.669 httpcore                  1.0.7
+#10 1.669 httpx                     0.27.2
+#10 1.669 hyperframe                6.0.1
+#10 1.669 idna                      3.7
+#10 1.669 importlib-metadata        8.5.0
+#10 1.669 importlib-resources       6.4.5
+#10 1.669 ipykernel                 6.29.5
+#10 1.669 ipython                   8.12.2
+#10 1.669 ipywidgets                8.1.5
+#10 1.669 isoduration               20.11.0
+#10 1.669 jedi                      0.19.1
+#10 1.669 jinja2                    3.1.4
+#10 1.669 joblib                    1.4.2
+#10 1.669 json5                     0.9.25
+#10 1.669 jsonpatch                 1.33
+#10 1.669 jsonpointer               2.1
+#10 1.669 jsonschema                4.23.0
+#10 1.669 jsonschema-specifications 2024.10.1
+#10 1.669 jupyter                   1.1.1
+#10 1.669 jupyter-client            8.6.3
+#10 1.669 jupyter-console           6.6.3
+#10 1.669 jupyter-core              5.8.1
+#10 1.669 jupyter-events            0.10.0
+#10 1.669 jupyter-lsp               2.2.5
+#10 1.669 jupyter-server            2.14.2
+#10 1.669 jupyter-server-terminals  0.5.3
+#10 1.669 jupyterlab                4.3.0
+#10 1.669 jupyterlab-pygments       0.3.0
+#10 1.669 jupyterlab-server         2.27.3
+#10 1.669 jupyterlab-widgets        3.0.13
+#10 1.669 libmambapy                1.5.0
+#10 1.669 llvmlite                  0.41.1
+#10 1.669 mamba                     1.5.0
+#10 1.669 markupsafe                2.1.5
+#10 1.669 matplotlib-inline         0.1.7
+#10 1.669 mistune                   3.0.2
+#10 1.669 mpmath                    1.3.0
+#10 1.669 nbclient                  0.10.2
+#10 1.669 nbconvert                 7.16.4
+#10 1.669 nbformat                  5.10.4
+#10 1.669 nest-asyncio              1.6.0
+#10 1.669 networkx                  3.1
+#10 1.669 notebook                  7.0.6
+#10 1.669 notebook-shim             0.2.4
+#10 1.669 numba                     0.58.1
+#10 1.669 numpy                     1.24.4
+#10 1.669 open3d                    0.15.1
+#10 1.669 overrides                 7.7.0
+#10 1.669 packaging                 24.1
+#10 1.669 pandas                    2.0.3
+#10 1.669 pandocfilters             1.5.0
+#10 1.669 parso                     0.8.4
+#10 1.669 pexpect                   4.9.0
+#10 1.669 pickleshare               0.7.5
+#10 1.669 pip                       24.3.1
+#10 1.669 pkgutil-resolve-name      1.3.10
+#10 1.669 platformdirs              4.3.6
+#10 1.669 pluggy                    1.0.0
+#10 1.669 plyfile                   1.1
+#10 1.669 pooch                     1.8.2
+#10 1.669 prometheus-client         0.21.0
+#10 1.669 prompt-toolkit            3.0.48
+#10 1.669 psutil                    6.0.0
+#10 1.669 ptyprocess                0.7.0
+#10 1.669 pure-eval                 0.2.3
+#10 1.669 pycosat                   0.6.6
+#10 1.669 pycparser                 2.21
+#10 1.669 pygments                  2.18.0
+#10 1.669 pyopenssl                 23.2.0
+#10 1.669 pysocks                   1.7.1
+#10 1.669 python-dateutil           2.9.0
+#10 1.669 python-json-logger        2.0.7
+#10 1.669 pytz                      2024.2
+#10 1.669 pyyaml                    6.0.2
+#10 1.669 pyzmq                     26.2.0
+#10 1.669 referencing               0.35.1
+#10 1.669 requests                  2.32.3
+#10 1.669 rfc3339-validator         0.1.4
+#10 1.669 rfc3986-validator         0.1.1
+#10 1.669 rpds-py                   0.20.0
+#10 1.669 ruamel-yaml               0.17.21
+#10 1.669 ruamel-yaml-clib          0.2.8
+#10 1.669 scikit-learn              1.3.2
+#10 1.669 scipy                     1.10.1
+#10 1.669 send2trash                1.8.3
+#10 1.669 setuptools                75.3.0
+#10 1.669 six                       1.16.0
+#10 1.669 sniffio                   1.3.1
+#10 1.669 soupsieve                 2.6
+#10 1.669 stack-data                0.6.2
+#10 1.669 sympy                     1.13.3
+#10 1.669 terminado                 0.18.1
+#10 1.669 threadpoolctl             3.5.0
+#10 1.669 tinycss2                  1.4.0
+#10 1.669 tomli                     2.0.2
+#10 1.669 toolz                     0.12.0
+#10 1.669 torch                     2.4.1
+#10 1.669 tornado                   6.4.1
+#10 1.669 tqdm                      4.66.5
+#10 1.669 traitlets                 5.14.3
+#10 1.669 triton                    3.0.0
+#10 1.669 types-python-dateutil     2.9.0.20241003
+#10 1.669 typing-extensions         4.12.2
+#10 1.669 typing-utils              0.1.0
+#10 1.669 tzdata                    2024.2
+#10 1.669 uri-template              1.3.0
+#10 1.669 urllib3                   2.2.3
+#10 1.669 uv                        0.8.12
+#10 1.669 wcwidth                   0.2.13
+#10 1.669 webcolors                 24.8.0
+#10 1.669 webencodings              0.5.1
+#10 1.669 websocket-client          1.8.0
+#10 1.669 wheel                     0.45.1
+#10 1.669 widgetsnbextension        4.0.13
+#10 1.669 zipp                      3.21.0
+#10 1.669 zstandard                 0.23.0
+#10 1.669 
+#10 DONE 1.8s
+
+#11 [5/6] RUN conda list
+#11 2.737 # packages in environment at /opt/conda/envs/pifenet:
+#11 2.737 #
+#11 2.737 # Name                    Version                   Build  Channel
+#11 2.737 _libgcc_mutex             0.1                 conda_forge    conda-forge
+#11 2.737 _openmp_mutex             4.5                       2_gnu    conda-forge
+#11 2.737 addict                    2.4.0              pyhd8ed1ab_2    conda-forge
+#11 2.737 anyio                     4.5.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 argon2-cffi               23.1.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 argon2-cffi-bindings      21.2.0           py38h01eb140_4    conda-forge
+#11 2.737 arrow                     1.3.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 asttokens                 3.0.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 async-lru                 2.0.4              pyhd8ed1ab_0    conda-forge
+#11 2.737 attrs                     24.2.0             pyh71513ae_0    conda-forge
+#11 2.737 babel                     2.16.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 backcall                  0.2.0              pyh9f0ad1d_0    conda-forge
+#11 2.737 beautifulsoup4            4.12.3             pyha770c72_0    conda-forge
+#11 2.737 blas                      1.0                         mkl    conda-forge
+#11 2.737 bleach                    6.1.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 boltons                   23.0.0           py38h06a4308_0  
+#11 2.737 boost                     1.85.0               hb563948_2    conda-forge
+#11 2.737 brotli-python             1.0.9            py38h6a678d5_8  
+#11 2.737 bzip2                     1.0.8                h4bc722e_7    conda-forge
+#11 2.737 c-ares                    1.34.5               hb9d3cd8_0    conda-forge
+#11 2.737 ca-certificates           2025.8.3             hbd8a1cb_0    conda-forge
+#11 2.737 cached-property           1.5.2                hd8ed1ab_1    conda-forge
+#11 2.737 cached_property           1.5.2              pyha770c72_1    conda-forge
+#11 2.737 certifi                   2024.8.30        py38h06a4308_0  
+#11 2.737 cffi                      1.15.1           py38h74dc2b5_0  
+#11 2.737 charset-normalizer        3.3.2              pyhd3eb1b0_0  
+#11 2.737 cmake                     3.18.2               h3f3948e_0    conda-forge
+#11 2.737 comm                      0.2.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 conda                     23.3.1           py38h06a4308_0  
+#11 2.737 conda-package-handling    2.3.0            py38h06a4308_0  
+#11 2.737 conda-package-streaming   0.10.0           py38h06a4308_0  
+#11 2.737 cryptography              41.0.7           py38he241bfc_1    conda-forge
+#11 2.737 cuda-cudart               12.4.127                      0    nvidia
+#11 2.737 cuda-cupti                12.4.127                      0    nvidia
+#11 2.737 cuda-libraries            12.4.1               ha770c72_1    conda-forge
+#11 2.737 cuda-nvcc                 12.4.131                      0    nvidia
+#11 2.737 cuda-nvrtc                12.4.127                      0    nvidia
+#11 2.737 cuda-nvtx                 12.4.127                      0    nvidia
+#11 2.737 cuda-opencl               12.4.127                      0    nvidia
+#11 2.737 cuda-runtime              12.4.1               ha804496_0    conda-forge
+#11 2.737 cuda-version              11.8                 h70ddcb2_3    conda-forge
+#11 2.737 cudatoolkit               11.8.0              h4ba93d1_13    conda-forge
+#11 2.737 cudatoolkit-dev           11.7.0               h1de0b5d_6    conda-forge
+#11 2.737 cudnn                     9.2.1.18             h93471f6_0    conda-forge
+#11 2.737 debugpy                   1.8.5            py38h6d02427_0    conda-forge
+#11 2.737 decorator                 5.1.1              pyhd8ed1ab_0    conda-forge
+#11 2.737 defusedxml                0.7.1              pyhd8ed1ab_0    conda-forge
+#11 2.737 entrypoints               0.4                pyhd8ed1ab_0    conda-forge
+#11 2.737 exceptiongroup            1.2.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 executing                 2.1.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 expat                     2.7.1                hecca717_0    conda-forge
+#11 2.737 filelock                  3.16.1             pyhd8ed1ab_0    conda-forge
+#11 2.737 fmt                       9.1.0                hdb19cb5_1  
+#11 2.737 fqdn                      1.5.1              pyhd8ed1ab_0    conda-forge
+#11 2.737 gmp                       6.3.0                hac33072_2    conda-forge
+#11 2.737 gmpy2                     2.1.5            py38h6a1700d_1    conda-forge
+#11 2.737 h11                       0.14.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 h2                        4.1.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 hpack                     4.0.0              pyh9f0ad1d_0    conda-forge
+#11 2.737 httpcore                  1.0.7              pyh29332c3_1    conda-forge
+#11 2.737 httpx                     0.27.2             pyhd8ed1ab_0    conda-forge
+#11 2.737 hyperframe                6.0.1              pyhd8ed1ab_0    conda-forge
+#11 2.737 icu                       73.2                 h59595ed_0    conda-forge
+#11 2.737 idna                      3.7              py38h06a4308_0  
+#11 2.737 importlib-metadata        8.5.0              pyha770c72_0    conda-forge
+#11 2.737 importlib_resources       6.4.5              pyhd8ed1ab_0    conda-forge
+#11 2.737 intel-openmp              2022.1.0          h9e868ea_3769  
+#11 2.737 ipykernel                 6.29.5             pyh3099207_0    conda-forge
+#11 2.737 ipython                   8.12.2             pyh41d4057_0    conda-forge
+#11 2.737 ipywidgets                8.1.5              pyhd8ed1ab_0    conda-forge
+#11 2.737 isoduration               20.11.0            pyhd8ed1ab_0    conda-forge
+#11 2.737 jedi                      0.19.1             pyhd8ed1ab_0    conda-forge
+#11 2.737 jinja2                    3.1.4              pyhd8ed1ab_0    conda-forge
+#11 2.737 joblib                    1.4.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 json5                     0.9.25             pyhd8ed1ab_0    conda-forge
+#11 2.737 jsonpatch                 1.33             py38h06a4308_1  
+#11 2.737 jsonpointer               2.1                pyhd3eb1b0_0  
+#11 2.737 jsonschema                4.23.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 jsonschema-specifications 2024.10.1          pyhd8ed1ab_0    conda-forge
+#11 2.737 jsonschema-with-format-nongpl 4.23.0               hd8ed1ab_1    conda-forge
+#11 2.737 jupyter                   1.1.1              pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyter-lsp               2.2.5              pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyter_client            8.6.3              pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyter_console           6.6.3              pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyter_core              5.8.1              pyh31011fe_0    conda-forge
+#11 2.737 jupyter_events            0.10.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyter_server            2.14.2             pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyter_server_terminals  0.5.3              pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyterlab                4.3.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyterlab_pygments       0.3.0              pyhd8ed1ab_1    conda-forge
+#11 2.737 jupyterlab_server         2.27.3             pyhd8ed1ab_0    conda-forge
+#11 2.737 jupyterlab_widgets        3.0.13             pyhd8ed1ab_0    conda-forge
+#11 2.737 keyutils                  1.6.3                hb9d3cd8_0    conda-forge
+#11 2.737 krb5                      1.21.3               h659f571_0    conda-forge
+#11 2.737 ld_impl_linux-64          2.44                 h1423503_1    conda-forge
+#11 2.737 libarchive                3.6.2                h3d51595_0    conda-forge
+#11 2.737 libblas                   3.9.0            16_linux64_mkl    conda-forge
+#11 2.737 libboost                  1.85.0               hba137d9_2    conda-forge
+#11 2.737 libboost-devel            1.85.0               h00ab1b0_2    conda-forge
+#11 2.737 libboost-headers          1.85.0               ha770c72_2    conda-forge
+#11 2.737 libboost-python           1.85.0           py38h3135665_2    conda-forge
+#11 2.737 libboost-python-devel     1.85.0           py38hb563948_2    conda-forge
+#11 2.737 libcblas                  3.9.0            16_linux64_mkl    conda-forge
+#11 2.737 libcublas                 12.4.5.8                      0    nvidia
+#11 2.737 libcufft                  11.2.1.3                      0    nvidia
+#11 2.737 libcufile                 1.9.1.3                       0    nvidia
+#11 2.737 libcurand                 10.3.5.147                    0    nvidia
+#11 2.737 libcurl                   8.8.0                hca28451_1    conda-forge
+#11 2.737 libcusolver               11.6.1.9                      0    nvidia
+#11 2.737 libcusparse               12.3.1.170                    0    nvidia
+#11 2.737 libedit                   3.1.20250104    pl5321h7949ede_0    conda-forge
+#11 2.737 libev                     4.33                 hd590300_2    conda-forge
+#11 2.737 libexpat                  2.7.1                hecca717_0    conda-forge
+#11 2.737 libffi                    3.4.6                h2dba641_1    conda-forge
+#11 2.737 libgcc                    15.1.0               h767d61c_4    conda-forge
+#11 2.737 libgcc-ng                 15.1.0               h69a702a_4    conda-forge
+#11 2.737 libgfortran               15.1.0               h69a702a_4    conda-forge
+#11 2.737 libgfortran-ng            15.1.0               h69a702a_4    conda-forge
+#11 2.737 libgfortran5              15.1.0               hcea5267_4    conda-forge
+#11 2.737 libgomp                   15.1.0               h767d61c_4    conda-forge
+#11 2.737 liblapack                 3.9.0            16_linux64_mkl    conda-forge
+#11 2.737 libllvm14                 14.0.6               hcd5def8_4    conda-forge
+#11 2.737 liblzma                   5.8.1                hb9d3cd8_2    conda-forge
+#11 2.737 liblzma-devel             5.8.1                hb9d3cd8_2    conda-forge
+#11 2.737 libmamba                  1.5.0                h658169a_0    conda-forge
+#11 2.737 libmambapy                1.5.0            py38he0d8f90_0    conda-forge
+#11 2.737 libnghttp2                1.58.0               h47da74e_1    conda-forge
+#11 2.737 libnpp                    12.2.5.30                     0    nvidia
+#11 2.737 libnsl                    2.0.1                hb9d3cd8_1    conda-forge
+#11 2.737 libnvfatbin               12.4.127                      0    nvidia
+#11 2.737 libnvjitlink              12.4.127                      0    nvidia
+#11 2.737 libnvjpeg                 12.3.1.117                    0    nvidia
+#11 2.737 libsodium                 1.0.18               h36c2ea0_1    conda-forge
+#11 2.737 libsolv                   0.7.30               he621ea3_1  
+#11 2.737 libsqlite                 3.46.0               hde9e2c9_0    conda-forge
+#11 2.737 libssh2                   1.11.0               h0841786_0    conda-forge
+#11 2.737 libstdcxx                 15.1.0               h8f9b012_4    conda-forge
+#11 2.737 libstdcxx-ng              15.1.0               h4852527_4    conda-forge
+#11 2.737 libuuid                   2.38.1               h0b41bf4_0    conda-forge
+#11 2.737 libuv                     1.51.0               hb03c661_1    conda-forge
+#11 2.737 libxcrypt                 4.4.36               hd590300_1    conda-forge
+#11 2.737 libxml2                   2.10.4               hfdd30dd_2  
+#11 2.737 libzlib                   1.2.13               h4ab18f5_6    conda-forge
+#11 2.737 llvm-openmp               15.0.7               h0cdce71_0    conda-forge
+#11 2.737 llvmlite                  0.41.1           py38h94a1851_0    conda-forge
+#11 2.737 lz4-c                     1.9.4                h6a678d5_1  
+#11 2.737 lzo                       2.10              h280c20c_1002    conda-forge
+#11 2.737 mamba                     1.5.0            py38haad2881_0    conda-forge
+#11 2.737 markupsafe                2.1.5            py38h01eb140_0    conda-forge
+#11 2.737 matplotlib-inline         0.1.7              pyhd8ed1ab_0    conda-forge
+#11 2.737 mistune                   3.0.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 mkl                       2022.1.0           hc2b9512_224  
+#11 2.737 mpc                       1.3.1                h24ddda3_1    conda-forge
+#11 2.737 mpfr                      4.2.1                h90cbb55_3    conda-forge
+#11 2.737 mpmath                    1.3.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 nbclient                  0.10.2             pyhd8ed1ab_0    conda-forge
+#11 2.737 nbconvert-core            7.16.4             pyhff2d567_2    conda-forge
+#11 2.737 nbformat                  5.10.4             pyhd8ed1ab_0    conda-forge
+#11 2.737 ncurses                   6.5                  h2d0b736_3    conda-forge
+#11 2.737 nest-asyncio              1.6.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 networkx                  3.1                pyhd8ed1ab_0    conda-forge
+#11 2.737 ninja                     1.13.1               h171cf75_0    conda-forge
+#11 2.737 notebook                  7.0.6            py38h06a4308_0  
+#11 2.737 notebook-shim             0.2.4              pyhd8ed1ab_0    conda-forge
+#11 2.737 numba                     0.58.1           py38h4144172_0    conda-forge
+#11 2.737 numpy                     1.24.4           py38h59b608b_0    conda-forge
+#11 2.737 open3d                    0.15.1                   py38_0    open3d-admin
+#11 2.737 openssl                   3.5.2                h26f9b46_0    conda-forge
+#11 2.737 overrides                 7.7.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 packaging                 24.1             py38h06a4308_0  
+#11 2.737 pandas                    2.0.3            py38h01efb38_1    conda-forge
+#11 2.737 pandocfilters             1.5.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 parso                     0.8.4              pyhd8ed1ab_0    conda-forge
+#11 2.737 pcre2                     10.42                hebb0a14_1  
+#11 2.737 pexpect                   4.9.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 pickleshare               0.7.5                   py_1003    conda-forge
+#11 2.737 pip                       24.3.1             pyh8b19718_0    conda-forge
+#11 2.737 pkgutil-resolve-name      1.3.10             pyhd8ed1ab_1    conda-forge
+#11 2.737 platformdirs              4.3.6              pyhd8ed1ab_0    conda-forge
+#11 2.737 pluggy                    1.0.0            py38h06a4308_1  
+#11 2.737 plyfile                   1.1                pyhd8ed1ab_0    conda-forge
+#11 2.737 pooch                     1.8.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 prometheus_client         0.21.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 prompt-toolkit            3.0.48             pyha770c72_0    conda-forge
+#11 2.737 prompt_toolkit            3.0.48               hd8ed1ab_1    conda-forge
+#11 2.737 psutil                    6.0.0            py38hfb59056_0    conda-forge
+#11 2.737 ptyprocess                0.7.0              pyhd3deb0d_0    conda-forge
+#11 2.737 pure_eval                 0.2.3              pyhd8ed1ab_0    conda-forge
+#11 2.737 pybind11-abi              4                    hd3eb1b0_1  
+#11 2.737 pycosat                   0.6.6            py38h5eee18b_1  
+#11 2.737 pycparser                 2.21               pyhd3eb1b0_0  
+#11 2.737 pygments                  2.18.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 pyopenssl                 23.2.0           py38h06a4308_0  
+#11 2.737 pysocks                   1.7.1            py38h06a4308_0  
+#11 2.737 python                    3.8.19          hd12c33a_0_cpython    conda-forge
+#11 2.737 python-dateutil           2.9.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 python-fastjsonschema     2.20.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 python-json-logger        2.0.7              pyhd8ed1ab_0    conda-forge
+#11 2.737 python-tzdata             2024.2             pyhd8ed1ab_0    conda-forge
+#11 2.737 python_abi                3.8                      8_cp38    conda-forge
+#11 2.737 pytorch                   2.4.1           py3.8_cuda12.4_cudnn9.1.0_0    pytorch
+#11 2.737 pytorch-cuda              12.4                 hc786d27_7    pytorch
+#11 2.737 pytorch-mutex             1.0                        cuda    pytorch
+#11 2.737 pytz                      2024.2             pyhd8ed1ab_0    conda-forge
+#11 2.737 pyyaml                    6.0.2            py38h2019614_0    conda-forge
+#11 2.737 pyzmq                     26.2.0           py38h6c80b9a_0    conda-forge
+#11 2.737 readline                  8.2                  h8c095d6_2    conda-forge
+#11 2.737 referencing               0.35.1             pyhd8ed1ab_0    conda-forge
+#11 2.737 reproc                    14.2.4               h6a678d5_2  
+#11 2.737 reproc-cpp                14.2.4               h6a678d5_2  
+#11 2.737 requests                  2.32.3           py38h06a4308_0  
+#11 2.737 rfc3339-validator         0.1.4              pyhd8ed1ab_0    conda-forge
+#11 2.737 rfc3986-validator         0.1.1              pyh9f0ad1d_0    conda-forge
+#11 2.737 rhash                     1.4.3                hd590300_2    conda-forge
+#11 2.737 rpds-py                   0.20.0           py38h4005ec7_0    conda-forge
+#11 2.737 ruamel.yaml               0.17.21          py38h5eee18b_0  
+#11 2.737 ruamel.yaml.clib          0.2.8            py38h5eee18b_0  
+#11 2.737 scikit-learn              1.3.2            py38ha25d942_2    conda-forge
+#11 2.737 scipy                     1.10.1           py38h59b608b_3    conda-forge
+#11 2.737 send2trash                1.8.3              pyh0d859eb_0    conda-forge
+#11 2.737 setuptools                75.3.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 six                       1.16.0             pyh6c4a22f_0    conda-forge
+#11 2.737 sniffio                   1.3.1              pyhd8ed1ab_0    conda-forge
+#11 2.737 soupsieve                 2.6                pyhd8ed1ab_0    conda-forge
+#11 2.737 sqlite                    3.46.0               h6d4b2fc_0    conda-forge
+#11 2.737 stack_data                0.6.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 sympy                     1.13.3          pypyh2585a3b_103    conda-forge
+#11 2.737 terminado                 0.18.1             pyh0d859eb_0    conda-forge
+#11 2.737 threadpoolctl             3.5.0              pyhc1e730c_0    conda-forge
+#11 2.737 tinycss2                  1.4.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 tk                        8.6.13          noxft_h4845f30_101    conda-forge
+#11 2.737 tomli                     2.0.2              pyhd8ed1ab_0    conda-forge
+#11 2.737 toolz                     0.12.0           py38h06a4308_0  
+#11 2.737 torchtriton               3.0.0                      py38    pytorch
+#11 2.737 tornado                   6.4.1            py38hfb59056_0    conda-forge
+#11 2.737 tqdm                      4.66.5           py38h2f386ee_0  
+#11 2.737 traitlets                 5.14.3             pyhd8ed1ab_0    conda-forge
+#11 2.737 types-python-dateutil     2.9.0.20241003     pyhff2d567_0    conda-forge
+#11 2.737 typing-extensions         4.12.2               hd8ed1ab_0    conda-forge
+#11 2.737 typing_extensions         4.12.2             pyha770c72_0    conda-forge
+#11 2.737 typing_utils              0.1.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 uri-template              1.3.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 urllib3                   2.2.3            py38h06a4308_0  
+#11 2.737 uv                        0.8.12                   pypi_0    pypi
+#11 2.737 wcwidth                   0.2.13             pyhd8ed1ab_0    conda-forge
+#11 2.737 webcolors                 24.8.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 webencodings              0.5.1              pyhd8ed1ab_2    conda-forge
+#11 2.737 websocket-client          1.8.0              pyhd8ed1ab_0    conda-forge
+#11 2.737 wheel                     0.45.1             pyhd8ed1ab_0    conda-forge
+#11 2.737 widgetsnbextension        4.0.13             pyhd8ed1ab_0    conda-forge
+#11 2.737 xz                        5.8.1                hbcc6ac9_2    conda-forge
+#11 2.737 xz-gpl-tools              5.8.1                hbcc6ac9_2    conda-forge
+#11 2.737 xz-tools                  5.8.1                hb9d3cd8_2    conda-forge
+#11 2.737 yaml                      0.2.5                h280c20c_3    conda-forge
+#11 2.737 yaml-cpp                  0.7.0                h295c915_1  
+#11 2.737 zeromq                    4.3.5                h75354e8_4    conda-forge
+#11 2.737 zipp                      3.21.0             pyhd8ed1ab_0    conda-forge
+#11 2.737 zlib                      1.2.13               h4ab18f5_6    conda-forge
+#11 2.737 zstandard                 0.23.0           py38h2c38b39_0  
+#11 2.737 zstd                      1.5.6                ha6fb4c9_0    conda-forge
+#11 2.737 
+#11 DONE 2.8s
+
+#12 [6/6] RUN python setup.py bdist_wheel
+#12 5.252 CMake Error at /opt/conda/envs/pifenet/share/cmake-3.18/Modules/CMakeTestCUDACompiler.cmake:52 (message):
+#12 5.252   The CUDA compiler
+#12 5.252 
+#12 5.252     "/opt/conda/envs/pifenet/bin/nvcc"
+#12 5.252 
+#12 5.252   is not able to compile a simple test program.
+#12 5.252 
+#12 5.252   It fails with the following output:
+#12 5.252 
+#12 5.252     Change Dir: /spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeTmp
+#12 5.252     
+#12 5.252     Run Build Command(s):/usr/bin/gmake cmTC_eb7fb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_eb7fb.dir/build.make CMakeFiles/cmTC_eb7fb.dir/build
+#12 5.252     gmake[1]: Entering directory '/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeTmp'
+#12 5.252     Building CUDA object CMakeFiles/cmTC_eb7fb.dir/main.cu.o
+#12 5.252     /opt/conda/envs/pifenet/bin/nvcc      -c /spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_eb7fb.dir/main.cu.o
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3647): error: identifier "cudaKernel_t" is undefined
+#12 5.252       extern "C" cudaError_t __cudaGetKernel(cudaKernel_t *, const void *);
+#12 5.252                                              ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3647): error: expected an expression
+#12 5.252       extern "C" cudaError_t __cudaGetKernel(cudaKernel_t *, const void *);
+#12 5.252                                                            ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3647): error: expected an expression
+#12 5.252       extern "C" cudaError_t __cudaGetKernel(cudaKernel_t *, const void *);
+#12 5.252                                                              ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3647): error: too many initializer values
+#12 5.252       extern "C" cudaError_t __cudaGetKernel(cudaKernel_t *, const void *);
+#12 5.252                                                                          ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3650): error: expected a ")"
+#12 5.252               cudaKernel_t kernel,
+#12 5.252                            ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3656): warning #12-D: parsing restarts here after previous syntax error
+#12 5.252       );
+#12 5.252       ^
+#12 5.252     
+#12 5.252     Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3659): error: expected a ")"
+#12 5.252               cudaKernel_t kernel,
+#12 5.252                            ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3665): warning #12-D: parsing restarts here after previous syntax error
+#12 5.252       );
+#12 5.252       ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3669): error: expected a ")"
+#12 5.252                                         cudaKernel_t kernel,
+#12 5.252                                                      ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3674): warning #12-D: parsing restarts here after previous syntax error
+#12 5.252                                         cudaStream_t stream)
+#12 5.252                                                            ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/crt/device_functions.h(3675): error: expected a ";"
+#12 5.252       {
+#12 5.252       ^
+#12 5.252     
+#12 5.252     /opt/conda/envs/pifenet/bin/..//include/cuda_runtime.h(1975): warning #12-D: parsing restarts here after previous syntax error
+#12 5.252       };
+#12 5.252        ^
+#12 5.252     
+#12 5.252     8 errors detected in the compilation of "/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeTmp/main.cu".
+#12 5.252     gmake[1]: *** [CMakeFiles/cmTC_eb7fb.dir/build.make:85: CMakeFiles/cmTC_eb7fb.dir/main.cu.o] Error 1
+#12 5.252     gmake[1]: Leaving directory '/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeTmp'
+#12 5.252     gmake: *** [Makefile:140: cmTC_eb7fb/fast] Error 2
+#12 5.252     
+#12 5.252     
+#12 5.252 
+#12 5.252   
+#12 5.252 
+#12 5.252   CMake will not be able to correctly generate this project.
+#12 5.252 Call Stack (most recent call first):
+#12 5.252   /opt/conda/envs/pifenet/lib/python3.8/site-packages/torch/share/cmake/Caffe2/public/cuda.cmake:47 (enable_language)
+#12 5.252   /opt/conda/envs/pifenet/lib/python3.8/site-packages/torch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)
+#12 5.252   /opt/conda/envs/pifenet/lib/python3.8/site-packages/torch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)
+#12 5.252   CMakeLists.txt:22 (find_package)
+#12 5.252 
+#12 5.252 
+#12 5.252 /opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/__init__.py:94: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.
+#12 5.252 !!
+#12 5.252 
+#12 5.252         ********************************************************************************
+#12 5.252         Requirements should be satisfied by a PEP 517 installer.
+#12 5.252         If you are using pip, you can try `pip install --use-pep517`.
+#12 5.252         ********************************************************************************
+#12 5.252 
+#12 5.252 !!
+#12 5.252   dist.fetch_build_eggs(dist.setup_requires)
+#12 5.252 Traceback (most recent call last):
+#12 5.252   File "setup.py", line 96, in <module>
+#12 5.252     setup(
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/__init__.py", line 117, in setup
+#12 5.252     return distutils.core.setup(**attrs)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/core.py", line 183, in setup
+#12 5.252     return run_commands(dist)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/core.py", line 199, in run_commands
+#12 5.252     dist.run_commands()
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 954, in run_commands
+#12 5.252     self.run_command(cmd)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/dist.py", line 999, in run_command
+#12 5.252     super().run_command(command)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 973, in run_command
+#12 5.252     cmd_obj.run()
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/command/bdist_wheel.py", line 410, in run
+#12 5.252     self.run_command("build")
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/cmd.py", line 316, in run_command
+#12 5.252     self.distribution.run_command(command)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/dist.py", line 999, in run_command
+#12 5.252     super().run_command(command)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 973, in run_command
+#12 5.252     cmd_obj.run()
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/command/build.py", line 135, in run
+#12 5.252     self.run_command(cmd_name)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/cmd.py", line 316, in run_command
+#12 5.252     self.distribution.run_command(command)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/dist.py", line 999, in run_command
+#12 5.252     super().run_command(command)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 973, in run_command
+#12 5.252     cmd_obj.run()
+#12 5.252   File "setup.py", line 48, in run
+#12 5.252     self.build_extension(ext)
+#12 5.252   File "setup.py", line 91, in build_extension
+#12 5.252     subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env)
+#12 5.252   File "/opt/conda/envs/pifenet/lib/python3.8/subprocess.py", line 364, in check_call
+#12 5.252     raise CalledProcessError(retcode, cmd)
+#12 5.252 subprocess.CalledProcessError: Command '['cmake', '/spconv', '-DCMAKE_PREFIX_PATH=/opt/conda/envs/pifenet/lib/python3.8/site-packages/torch', '-DPYBIND11_PYTHON_VERSION=3.8', '-DSPCONV_BuildTests=OFF', '-DPYTORCH_VERSION=20401', '-DSPCONV_BuildCUDA=OFF', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/spconv/build/lib.linux-x86_64-cpython-38/spconv', '-DCMAKE_BUILD_TYPE=Release']' returned non-zero exit status 1.
+#12 5.252 
+#12 5.252 ERROR conda.cli.main_run:execute(125): `conda run /bin/bash -c python setup.py bdist_wheel` failed. (See above for error)
+#12 5.252 running bdist_wheel
+#12 5.252 running build
+#12 5.252 running build_py
+#12 5.252 creating build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/pool.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/functional.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/test_utils.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/identity.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/ops.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/conv.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/tables.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/__init__.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 copying spconv/modules.py -> build/lib.linux-x86_64-cpython-38/spconv
+#12 5.252 creating build/lib.linux-x86_64-cpython-38/spconv/utils
+#12 5.252 copying spconv/utils/__init__.py -> build/lib.linux-x86_64-cpython-38/spconv/utils
+#12 5.252 running build_ext
+#12 5.252 -- The CXX compiler identification is GNU 12.2.0
+#12 5.252 -- Detecting CXX compiler ABI info
+#12 5.252 -- Detecting CXX compiler ABI info - done
+#12 5.252 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#12 5.252 -- Detecting CXX compile features
+#12 5.252 -- Detecting CXX compile features - done
+#12 5.252 -- Found CUDA: /opt/conda/envs/pifenet (found version "11.7") 
+#12 5.252 -- The CUDA compiler identification is unknown
+#12 5.252 -- Detecting CUDA compiler ABI info
+#12 5.252 -- Detecting CUDA compiler ABI info - failed
+#12 5.252 -- Check for working CUDA compiler: /opt/conda/envs/pifenet/bin/nvcc
+#12 5.252 -- Check for working CUDA compiler: /opt/conda/envs/pifenet/bin/nvcc - broken
+#12 5.252 -- Configuring incomplete, errors occurred!
+#12 5.252 See also "/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeOutput.log".
+#12 5.252 See also "/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeError.log".
+#12 5.252 Release
+#12 5.252 |||||CMAKE ARGS||||| ['-DCMAKE_PREFIX_PATH=/opt/conda/envs/pifenet/lib/python3.8/site-packages/torch', '-DPYBIND11_PYTHON_VERSION=3.8', '-DSPCONV_BuildTests=OFF', '-DPYTORCH_VERSION=20401', '-DSPCONV_BuildCUDA=OFF', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/spconv/build/lib.linux-x86_64-cpython-38/spconv', '-DCMAKE_BUILD_TYPE=Release']
+#12 5.252 
+#12 ERROR: process "conda run -n pifenet /bin/bash -c python setup.py bdist_wheel" did not complete successfully: exit code: 1
+------
+ > [6/6] RUN python setup.py bdist_wheel:
+5.252 -- Detecting CUDA compiler ABI info
+5.252 -- Detecting CUDA compiler ABI info - failed
+5.252 -- Check for working CUDA compiler: /opt/conda/envs/pifenet/bin/nvcc
+5.252 -- Check for working CUDA compiler: /opt/conda/envs/pifenet/bin/nvcc - broken
+5.252 -- Configuring incomplete, errors occurred!
+5.252 See also "/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeOutput.log".
+5.252 See also "/spconv/build/temp.linux-x86_64-cpython-38/CMakeFiles/CMakeError.log".
+5.252 Release
+5.252 |||||CMAKE ARGS||||| ['-DCMAKE_PREFIX_PATH=/opt/conda/envs/pifenet/lib/python3.8/site-packages/torch', '-DPYBIND11_PYTHON_VERSION=3.8', '-DSPCONV_BuildTests=OFF', '-DPYTORCH_VERSION=20401', '-DSPCONV_BuildCUDA=OFF', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/spconv/build/lib.linux-x86_64-cpython-38/spconv', '-DCMAKE_BUILD_TYPE=Release']
+5.252 
+------
+ERROR: failed to solve: process "conda run -n pifenet /bin/bash -c python setup.py bdist_wheel" did not complete successfully: exit code: 1
