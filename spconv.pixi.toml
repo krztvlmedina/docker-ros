@@ -1,0 +1,70 @@
+[workspace]
+name = "spconv"
+version = "0.1.0"
+description = "Pixi environment for building spconv"
+channels = ["pytorch", "conda-forge", "nvidia", "numba", "open3d-admin"]
+platforms = ["linux-64"]
+preview = ["pixi-build"]
+
+[system-requirements]
+cuda = "11.0"
+
+[dependencies]
+# cudatoolkit = {version="12.9.1", channel="nvidia"} 
+# cudatoolkit-dev = "*"
+# cuda-nvcc = {version="*", channel="nvidia"}  
+# cudnn = {version="9.12.0", channel="conda-forge"}  
+boost = "*"
+python = "==3.8.6"
+cuda-version = "11.0.*"
+
+[pypi-dependencies]
+setuptools = { version = "*", index = "https://download.pytorch.org/whl/cu110" }
+opencv-python = "*"
+torch = { version = "==1.7.1+cu110", index = "https://download.pytorch.org/whl/cu110" }
+torchvision = { version = "==0.8.2+cu110", index = "https://download.pytorch.org/whl/cu110" }
+# torchaudio = { version = "==0.13.1+cu118", index = "https://download.pytorch.org/whl/cu110" }
+
+[tasks]
+check_cuda = 'python -c "import torch; print(torch.cuda.is_available())"'
+nvcc_ok = "nvcc --version"
+setup_cuda_env = '''
+export CUDA_HOME=$CONDA_PREFIX
+export CUDA_ROOT=$CONDA_PREFIX
+export CUDACXX=$CONDA_PREFIX/bin/nvcc
+export CPATH=$CONDA_PREFIX/include:$CPATH
+'''
+start = "python setup.py bdist_wheel"
+
+[package]
+name = {workspace = true}
+version = {workspace = true}
+
+[package.build.backend]
+name = "pixi-build-cmake"
+channels = [
+  "https://prefix.dev/pixi-build-backends",
+  "https://prefix.dev/conda-forge",
+]
+version = "0.3.*"
+
+[package.build-dependencies]
+git = "*"
+cudatoolkit = {version="==11.0.221"} 
+cuda-version = "11.0.*"
+boost = "*"
+python = "==3.8.6"
+cmake = "==3.18.2"
+
+[package.host-dependencies]
+# cudatoolkit-dev = "*"
+# cuda-nvcc = {version="*", channel="nvidia"}
+# cudnn = {version="9.12.0", channel="conda-forge"}  
+# Add these CUDA development packages
+# cuda-libraries-dev = {version="13.0", channel="nvidia"}
+# cuda-runtime-dev = {version="13.0", channel="nvidia"}
+# libcurand-dev = "*"
+# libcublas-dev = "*"
+# libcusparse-dev = "*"
+# libcusolver-dev = "*"
+# libcufft-dev = "*"

@@ -1,17 +1,17 @@
 services:
-  pifenetBase:
+  spconv:
     build:
       context: ../
       dockerfile: docker/base.pixi.Dockerfile
-    image: pifenet-base
+      target: build-spconv
+    image: spconv:latest   # <--- tag it so pifenet can reference
     profiles: ["build-only"]
   pifenet:
     build:
       context: ../
-      dockerfile: docker/base.pixi.Dockerfile
+      dockerfile: docker/pixi.Dockerfile
     image: pifenet
-    # depends_on:
-      # - pifenetBase
+    container_name: velodyne_pifenet  
       # - ./external:/external
     # command: ["bash"]
     command: ["tail", "-f", "/dev/null"]
@@ -21,8 +21,8 @@ services:
       resources:
         reservations:
           devices:
-            - driver: nvidia
-              capabilities: [gpu]
+            - capabilities:
+              - gpu
     develop:
       # Create a `watch` configuration to update the app
       # https://docs.docker.com/compose/file-watch/#compose-watch-versus-bind-mounts
@@ -43,6 +43,18 @@ services:
     build:
       context: ..
       dockerfile: docker/ros-velodyne.Dockerfile
-    container_name: velodyne_ros
+    container_name: velodyne_ros2
     network_mode: "host"
+    ipc: host
+    # Needed to display graphical applications
+    privileged: true
+    environment:
+      # Allows graphical programs in the container.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
     tty: true
