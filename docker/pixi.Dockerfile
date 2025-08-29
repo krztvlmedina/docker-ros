@@ -37,7 +37,7 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
 
 WORKDIR /spconv
-RUN pixi run setup_cuda_env && pixi run check_cuda && pixi build
+RUN pixi run setup_cuda_env && pixi run check_cuda && pixi run start
 # RUN pixi run setup_cuda_env && pixi run check_cuda && export PATH=/usr/bin/cmake:$PATH && pixi run start
 
 FROM built-spconv

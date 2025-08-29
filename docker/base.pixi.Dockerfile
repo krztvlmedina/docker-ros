@@ -5,7 +5,7 @@ COPY src/conda-environment.yml .
 # COPY src/pyproject.toml .
 # COPY src/check_torch.py .
 COPY external/spconv /spconv
-COPY spconv.pixi.toml .
+COPY spconv.pixi.toml /spconv/pixi.toml
 
 
 
