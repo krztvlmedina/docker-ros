@@ -1,0 +1,3 @@
+[submodule "external/PiFeNet"]
+	path = external/PiFeNet
+	url = git@github.com:ldtho/PiFeNet.git

@@ -37,12 +37,13 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
 
 WORKDIR /spconv
-RUN pixi run setup_cuda_env && pixi run check_cuda && pixi run start
+# RUN pixi run setup_cuda_env && pixi run check_cuda && pixi run start
 # RUN pixi run setup_cuda_env && pixi run check_cuda && export PATH=/usr/bin/cmake:$PATH && pixi run start
 
 FROM built-spconv
-COPY pifenet.pixi.toml .
+COPY .pixi/pifenet.pixi.toml /workspaces/pifenet/pixi.toml
+# RUN mv /spconv/ /pifenet/spconv/
 # COPY spconv .
 RUN ls -a
-WORKDIR /pifenet
+WORKDIR /workspaces/pifenet
 RUN pixi install -e pifenet
